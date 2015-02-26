@@ -198,6 +198,24 @@ bool Matrix::canMoveUp()
     }
 }
 
+bool Matrix::canMoveUpColone(int colone)
+{
+    for (int i = 0; i < 3; i++){
+        if ((mMatrix[i][colone].Value == mMatrix[i+1][colone].Value)
+                &&(!mMatrix[i][colone].Moved)&&(!mMatrix[i+1][colone].Moved)
+                &&(mMatrix[i][colone].Value!=0)){
+            return true;
+        }
+        if ((mMatrix[i][colone].Value*mMatrix[i+1][colone].Value==0)
+                &&(mMatrix[i][colone].Value+mMatrix[i+1][colone].Value!=0)
+                &&(!mMatrix[i][colone].Moved)&&(!mMatrix[i+1][colone].Moved)
+                &&(mMatrix[i+1][colone].Value!=0)){
+            return true;
+        }
+    }
+    return false;
+}
+
 bool Matrix::canMoveLeft()
 {
     for (int i=0; i<4; i++) {
@@ -251,6 +269,24 @@ bool Matrix::canMoveDown()
                     &&(mMatrix[i-1][j].Value!=0)){
                 return true;
             }
+        }
+    }
+    return false;
+}
+
+bool Matrix::canMoveDownColone(int colone)
+{
+    for (int i = 3; i > 0; i--){
+        if ((mMatrix[i][colone].Value == mMatrix[i-1][colone].Value)
+                &&(!mMatrix[i][colone].Moved)&&(!mMatrix[i-1][colone].Moved)
+                &&(mMatrix[i][colone].Value!=0)){
+            return true;
+        }
+        if ((mMatrix[i][colone].Value*mMatrix[i-1][colone].Value==0)
+                &&(mMatrix[i][colone].Value+mMatrix[i-1][colone].Value!=0)
+                &&(!mMatrix[i][colone].Moved)&&(!mMatrix[i-1][colone].Moved)
+                &&(mMatrix[i-1][colone].Value!=0)){
+            return true;
         }
     }
     return false;

@@ -31,9 +31,11 @@ public:
 
     /*Функция проверяет возможность сдвига вверх*/
     bool canMoveUp();
+    bool canMoveUpColone(int colone);
 
     /*Функция проверяет возможность сдвига вниз*/
     bool canMoveDown();
+    bool canMoveDownColone(int colone);
 
     /*Структура для хранения состояния блока матрицы*/
     struct Tile{
