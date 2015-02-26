@@ -378,7 +378,6 @@ void Matrix::swapDown(int i, int j)
     }
 }
 
-
 int Matrix::getElementAt(int i, int j)
 {
     return mMatrix[i][j].Value;
@@ -446,10 +445,6 @@ int Matrix::getRandomValue()
     randomValue = qrand() % 2; // Получаем 0 или 1
     return (randomValue+1)*2; //Возвращаем 2 или 4
 }
-
-
-
-
 
 void Matrix::setAllMovedFalse()
 {
