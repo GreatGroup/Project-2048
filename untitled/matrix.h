@@ -36,7 +36,7 @@ public:
     bool canMoveDown();
 
     /*Структура для хранения состояния блока матрицы*/
-    struct Block{
+    struct Tile{
         int Value;
         bool Moved;
     };
@@ -48,8 +48,11 @@ public:
 private:
 
     int carma;
+    int countOfTilesGenedWithVTwo;
+    int countOfTilesGenedWithVFour;
 
-    Block mMatrix [4][4];
+
+    Tile mMatrix [4][4];
     /**
      * @brief getRandomNullCoords -  Функция для получения координат случайного нуля
      * @param nulls - число нулей в матрице

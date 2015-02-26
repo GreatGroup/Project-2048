@@ -3,12 +3,21 @@
 Matrix::Matrix()
 {
     carma = 0;
+    countOfTilesGenedWithVFour = 0;
+    countOfTilesGenedWithVTwo = 0;
     setAllNulls();
     QList<int> null = getRandomNullCoords(getNullsCount());
     mMatrix[null.at(0)][null.at(1)].Value = getRandomValue();
-    mMatrix[null.at(0)][null.at(1)].Value;
+    if (mMatrix[null.at(0)][null.at(1)].Value == 2)
+        countOfTilesGenedWithVTwo++;
+    else
+        countOfTilesGenedWithVFour++;
     null = getRandomNullCoords(getNullsCount());
     mMatrix[null.at(0)][null.at(1)].Value = getRandomValue();
+    if (mMatrix[null.at(0)][null.at(1)].Value == 2)
+        countOfTilesGenedWithVTwo++;
+    else
+        countOfTilesGenedWithVFour++;
 }
 
 Matrix::~Matrix()
