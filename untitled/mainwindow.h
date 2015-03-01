@@ -34,6 +34,8 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_tableWidget_itemSelectionChanged();
+
 private:
     Ui::MainWindow *ui;
     Matrix matrix;

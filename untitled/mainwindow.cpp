@@ -106,3 +106,8 @@ void MainWindow::changeTable()
         }
     }
 }
+
+void MainWindow::on_tableWidget_itemSelectionChanged()
+{
+    ui->tableWidget->clearSelection();
+}
