@@ -10,6 +10,7 @@
 #include <QColor>
 #include <QFont>
 #include <QMap>
+#include <QKeyEvent>
 
 #include "matrix.h"
 
@@ -26,15 +27,19 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_3_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_4_clicked();
 
     void on_tableWidget_itemSelectionChanged();
+
+    void on_left_clicked();
+
+    void on_right_clicked();
+
+    void on_down_clicked();
+
+    void on_up_clicked();
+
+protected:
+    void keyPressEvent(QKeyEvent* event);
 
 private:
     Ui::MainWindow *ui;

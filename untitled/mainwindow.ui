@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>943</width>
-    <height>633</height>
+    <width>869</width>
+    <height>779</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="left">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -27,7 +27,7 @@
      <string>влево</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="right">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -40,7 +40,7 @@
      <string>вправо</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="down">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -53,7 +53,7 @@
      <string>вниз</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="up">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -89,13 +89,23 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>540</y>
+      <width>441</width>
+      <height>141</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>943</width>
+     <width>869</width>
      <height>21</height>
     </rect>
    </property>

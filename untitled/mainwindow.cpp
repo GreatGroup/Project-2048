@@ -29,40 +29,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-   //влево
-    matrix.left();
-    changeTable();
-    ui->carma->setText(QString::number(matrix.getCarma()));
-}
-
-void MainWindow::on_pushButton_3_clicked()
-{
-    //вниз
-    //вправо
-    matrix.down();
-    changeTable();
-    ui->carma->setText(QString::number(matrix.getCarma()));
-}
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    //вправо
-    matrix.right();
-    changeTable();
-    ui->carma->setText(QString::number(matrix.getCarma()));
-}
-
-void MainWindow::on_pushButton_4_clicked()
-{
-    //вверх
-    matrix.up();
-    changeTable();
-    ui->carma->setText(QString::number(matrix.getCarma()));
-
-}
-
 void MainWindow::setupTable()
 {
     QTableWidget * table = ui->tableWidget;
@@ -110,4 +76,53 @@ void MainWindow::changeTable()
 void MainWindow::on_tableWidget_itemSelectionChanged()
 {
     ui->tableWidget->clearSelection();
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    int key = event->key();
+    switch (key) {
+    case 0x01000012:
+        on_left_clicked();
+        break;
+    case 0x01000013:
+        on_up_clicked();
+        break;
+    case 0x01000014:
+        on_right_clicked();
+        break;
+    case 0x01000015:
+        on_down_clicked();
+        break;
+    default:
+        break;
+    }
+}
+
+void MainWindow::on_left_clicked()
+{
+    matrix.left();
+    changeTable();
+    ui->carma->setText(QString::number(matrix.getCarma()));
+}
+
+void MainWindow::on_right_clicked()
+{
+    matrix.right();
+    changeTable();
+    ui->carma->setText(QString::number(matrix.getCarma()));
+}
+
+void MainWindow::on_down_clicked()
+{
+    matrix.down();
+    changeTable();
+    ui->carma->setText(QString::number(matrix.getCarma()));
+}
+
+void MainWindow::on_up_clicked()
+{
+    matrix.up();
+    changeTable();
+    ui->carma->setText(QString::number(matrix.getCarma()));
 }
