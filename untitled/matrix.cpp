@@ -57,19 +57,8 @@ void Matrix::left()
 bool Matrix::canMoveLeft()
 {
     for (int i=0; i<4; i++) {
-        for(int j=0; j<3; j++) {
-            if ((mMatrix[i][j].Value == mMatrix[i][j+1].Value)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i][j+1].Moved)
-                    &&(mMatrix[i][j].Value!=0)){
-                return true;
-            }
-            if ((mMatrix[i][j].Value*mMatrix[i][j+1].Value==0)
-                    &&(mMatrix[i][j].Value+mMatrix[i][j+1].Value!=0)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i][j+1].Moved)
-                    &&(mMatrix[i][j+1].Value!=0)){
-                return true;
-            }
-        }
+        if (canMoveLeftLine(i))
+            return true;
     }
     return false;
 }
@@ -145,19 +134,8 @@ void Matrix::right()
 bool Matrix::canMoveRight()
 {
     for (int i=0; i<4; i++) {
-        for(int j=3; j>0; j--) {
-            if ((mMatrix[i][j].Value == mMatrix[i][j-1].Value)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i][j-1].Moved)
-                    &&(mMatrix[i][j].Value!=0)){
-                return true;
-            }
-            if ((mMatrix[i][j].Value*mMatrix[i][j-1].Value==0)
-                    &&(mMatrix[i][j].Value+mMatrix[i][j-1].Value!=0)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i][j-1].Moved)
-                    &&(mMatrix[i][j-1].Value!=0)){
-                return true;
-            }
-        }
+        if(canMoveRightLine(i))
+            return true;
     }
     return false;
 }
@@ -234,19 +212,8 @@ void Matrix::up()
 bool Matrix::canMoveUp()
 {
     for (int j = 0; j < 4; j++) {
-        for (int i = 0; i < 3; i++){
-            if ((mMatrix[i][j].Value == mMatrix[i+1][j].Value)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i+1][j].Moved)
-                    &&(mMatrix[i][j].Value!=0)){
-                return true;
-            }
-            if ((mMatrix[i][j].Value*mMatrix[i+1][j].Value==0)
-                    &&(mMatrix[i][j].Value+mMatrix[i+1][j].Value!=0)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i+1][j].Moved)
-                    &&(mMatrix[i+1][j].Value!=0)){
-                return true;
-            }
-        }
+        if (canMoveUpColone(j))
+            return true;
     }
     return false;
 }
@@ -322,19 +289,8 @@ void Matrix::down()
 bool Matrix::canMoveDown()
 {
     for (int j = 0; j < 4; j++) {
-        for (int i = 3; i > 0; i--){
-            if ((mMatrix[i][j].Value == mMatrix[i-1][j].Value)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i-1][j].Moved)
-                    &&(mMatrix[i][j].Value!=0)){
-                return true;
-            }
-            if ((mMatrix[i][j].Value*mMatrix[i-1][j].Value==0)
-                    &&(mMatrix[i][j].Value+mMatrix[i-1][j].Value!=0)
-                    &&(!mMatrix[i][j].Moved)&&(!mMatrix[i-1][j].Moved)
-                    &&(mMatrix[i-1][j].Value!=0)){
-                return true;
-            }
-        }
+        if(canMoveDownColone(j))
+            return true;
     }
     return false;
 }

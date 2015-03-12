@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -7,6 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QObjectList objList = ui->centralWidget->children();
+    for (int i = 0; i < objList.size(); i++){
+        if (objList.at(i)->objectName() != "codeArea")
+            objList.at(i)->installEventFilter(this);
+    }
     colorMap[0] = "#CCC0B3";
     colorMap[2] = "#EEE4DA";
     colorMap[4] = "#EDE0C8";
@@ -76,6 +82,7 @@ void MainWindow::changeTable()
 void MainWindow::on_tableWidget_itemSelectionChanged()
 {
     ui->tableWidget->clearSelection();
+    clearFocus();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -104,6 +111,7 @@ void MainWindow::on_left_clicked()
     matrix.left();
     changeTable();
     ui->carma->setText(QString::number(matrix.getCarma()));
+    ui->left->clearFocus();
 }
 
 void MainWindow::on_right_clicked()
@@ -111,6 +119,7 @@ void MainWindow::on_right_clicked()
     matrix.right();
     changeTable();
     ui->carma->setText(QString::number(matrix.getCarma()));
+    ui->right->clearFocus();
 }
 
 void MainWindow::on_down_clicked()
@@ -118,6 +127,7 @@ void MainWindow::on_down_clicked()
     matrix.down();
     changeTable();
     ui->carma->setText(QString::number(matrix.getCarma()));
+    ui->down->clearFocus();
 }
 
 void MainWindow::on_up_clicked()
@@ -125,4 +135,30 @@ void MainWindow::on_up_clicked()
     matrix.up();
     changeTable();
     ui->carma->setText(QString::number(matrix.getCarma()));
+    ui->up->clearFocus();
 }
+/*bool MainWindow::eventFilter(QObject* obj, QEvent* event)
+{
+    Q_UNUSED(obj)
+
+    if (event->type() == QEvent::KeyRelease) {
+        QKeyEvent* key = static_cast<QKeyEvent*>(event);
+
+        switch (key->key()) {
+        case Qt::Key_Left:
+            on_left_clicked();
+            break;
+        case Qt::Key_Up:
+            on_up_clicked();
+            break;
+        case Qt::Key_Right:
+            on_right_clicked();
+            break;
+        case Qt::Key_Down:
+            on_down_clicked();
+            break;
+        }
+    }
+
+    return QMainWindow::eventFilter(obj, event);
+}*/

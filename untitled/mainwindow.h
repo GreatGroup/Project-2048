@@ -42,6 +42,7 @@ protected:
     void keyPressEvent(QKeyEvent* event);
 
 private:
+    //bool eventFilter(QObject* obj, QEvent* event);
     Ui::MainWindow *ui;
     Matrix matrix;
     QMap<int, QString> colorMap;
